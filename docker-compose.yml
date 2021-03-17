@@ -1,22 +1,5 @@
 version: '3.7'
 services:
-  # This is a tiny web application used to direct users to other services
-  start-page:
-    image: amrc-factoryplus.***REMOVED***:5000/factoryplus-cell-gateway-start-page:1.1.0
-    user: root
-    ports:
-      - target: 80
-        published: 80
-        protocol: tcp
-        mode: host
-    deploy:
-      mode: global
-      placement:
-        constraints:
-          - node.labels.fplus-role==cell-gateway
-          - node.labels.gw-type!=soft
-    networks:
-      - factory-plus
 
   # This is the local MQTT server that is bridged to the central MQTT server
   mqtt:
