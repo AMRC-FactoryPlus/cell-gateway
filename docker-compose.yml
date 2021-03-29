@@ -3,7 +3,7 @@ services:
 
   # This is the local MQTT server that is bridged to the central MQTT server
   mqtt:
-    image: amrc-factoryplus.***REMOVED***:5000/factory-plus-mqtt-gateway:3.0.0
+    image: amrc-factoryplus.<domain>:5000/factory-plus-mqtt-gateway:3.0.0
     ports:
       - target: 1883
         published: 1883
@@ -27,7 +27,7 @@ services:
 
   # This is an instance of Node-RED to enable edge logic to be performed 
   node-red:
-    image: amrc-factoryplus.***REMOVED***:5000/node-red:1.2.5
+    image: amrc-factoryplus.<domain>:5000/node-red:1.2.5
     ports:
       - target: 1880
         published: 1880
@@ -47,7 +47,7 @@ services:
 
   # This is an instance of the Translator app responsible for converting between different protocols and Sparkplug
   translator:
-    image: amrc-factoryplus.***REMOVED***:5000/factoryplus-sparkplug-translation-service:2.2.0
+    image: amrc-factoryplus.<domain>:5000/factoryplus-sparkplug-translation-service:2.2.0
     environment:
       - FIELDBUS=false
     ports:
@@ -68,7 +68,7 @@ services:
   
 # This is an instance of Ignition Edge to enable the robust connection of supported devices
   ignition_edge:
-    image: amrc-factoryplus.***REMOVED***:5000/ignition:8.1.0
+    image: amrc-factoryplus.<domain>:5000/ignition:8.1.0
     networks:
       - factory-plus
     ports:
@@ -91,7 +91,7 @@ services:
 
   # This is the bacula director that is in charge of scheduling the backups from this node
   baculadirector:
-    image: amrc-factoryplus.***REMOVED***:5000/bacula-director:9.6.5
+    image: amrc-factoryplus.<domain>:5000/bacula-director:9.6.5
     deploy:
       mode: global
       placement:
@@ -107,7 +107,7 @@ services:
      
   # This is the bacula client that performs bacups of the local docker volumes 
   baculaclient:
-    image: amrc-factoryplus.***REMOVED***:5000/bacula-client:9.6.5
+    image: amrc-factoryplus.<domain>:5000/bacula-client:9.6.5
     deploy:
       mode: global
       placement:
